@@ -1,3 +1,6 @@
+# Temporary cloned repositories (reference only, not part of the project)
+temp-openmontage/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

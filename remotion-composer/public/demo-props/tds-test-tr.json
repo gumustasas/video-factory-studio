@@ -1,0 +1,74 @@
+{
+  "theme": "clean-professional",
+  "themeConfig": {
+    "primaryColor": "#0066CC",
+    "accentColor": "#00A651",
+    "backgroundColor": "#0A1628",
+    "surfaceColor": "#112240",
+    "textColor": "#F8FAFC",
+    "mutedTextColor": "#94A3B8",
+    "headingFont": "Space Grotesk",
+    "bodyFont": "Space Grotesk",
+    "monoFont": "Fira Code",
+    "chartColors": ["#0066CC", "#00A651", "#FF6B35", "#FFB81C", "#6B5CE6", "#00BCD4"],
+    "springConfig": { "damping": 15, "stiffness": 90, "mass": 1 },
+    "transitionDuration": 0.4,
+    "captionHighlightColor": "#00A651",
+    "captionBackgroundColor": "rgba(10, 22, 40, 0.8)"
+  },
+  "cuts": [
+    {
+      "id": "hook",
+      "source": "",
+      "type": "hero_title",
+      "in_seconds": 0,
+      "out_seconds": 3.5,
+      "text": "TDS Nedir?",
+      "subtitle": "Suyunuzdaki gorunmeyen gercek",
+      "backgroundColor": "#0A1628"
+    },
+    {
+      "id": "tds-aciklama",
+      "source": "",
+      "type": "stat_card",
+      "in_seconds": 3.5,
+      "out_seconds": 6.5,
+      "stat": "TDS",
+      "subtitle": "Toplam Cozunmus Katı Madde (mg/L)",
+      "accentColor": "#0066CC",
+      "backgroundColor": "#0A1628"
+    },
+    {
+      "id": "sehir-karsilastirma",
+      "source": "",
+      "type": "bar_chart",
+      "in_seconds": 6.5,
+      "out_seconds": 10,
+      "title": "Turkiye Sehir TDS Degerleri (ppm)",
+      "chartData": [
+        { "label": "Adana", "value": 500 },
+        { "label": "Ankara", "value": 460 },
+        { "label": "Bursa", "value": 325 },
+        { "label": "Istanbul", "value": 200 },
+        { "label": "Konya", "value": 150 }
+      ],
+      "chartColors": ["#FF6B35", "#FF6B35", "#FFB81C", "#00A651", "#00A651"],
+      "showGrid": true,
+      "showValues": true,
+      "backgroundColor": "#0A1628"
+    }
+  ],
+  "overlays": [
+    {
+      "type": "stat_reveal",
+      "in_seconds": 7,
+      "out_seconds": 9.5,
+      "text": "WHO: <300",
+      "subtitle": "Ideal icme suyu limiti",
+      "accentColor": "#00A651",
+      "position": "bottom-right"
+    }
+  ],
+  "captions": [],
+  "audio": {}
+}

@@ -1,0 +1,112 @@
+identity:
+  name: "Suvesu - Bilimsel Guven & Saf Teknoloji"
+  category: motion-graphics
+  mood: trustworthy, scientific, clean, progressive, professional
+  pace: moderate
+  best_for: "Su safligi egitim videolari, urun demolari, saglik icerikleri, sehir su kalitesi analizleri, Turkce kisa videolar"
+
+visual_language:
+  color_palette:
+    primary: ["#0066CC", "#0052A3"]
+    accent: ["#00A651", "#1AC74C"]
+    background: "#FFFFFF"
+    text: "#1A1A2E"
+    muted: "#5C6B7A"
+  composition: centered, generous whitespace, rule-of-thirds for key visuals, data-forward layouts
+  texture: clean flat, subtle water texture overlays on hero scenes, no grain
+
+typography:
+  headings:
+    font: "Noto Sans"
+    weight: 700
+    tracking: "-0.01em"
+  body:
+    font: "Noto Sans"
+    weight: 400
+    line_height: 1.6
+  code:
+    font: "JetBrains Mono"
+    weight: 400
+  stat_card:
+    font: "Noto Sans"
+    weight: 800
+    size_multiplier: 3.2
+  scale_system: "major_third"
+  weight_matrix:
+    title: 800
+    heading: 700
+    body: 400
+    caption: 400
+
+motion:
+  transitions: [fade, dissolve, slide-left, cross-fade]
+  animation_style: "ease-in-out, precise, scientific, no bounce"
+  pacing_rules:
+    min_scene_hold_seconds: 2.8
+    max_scene_hold_seconds: 10
+    text_card_hold_seconds: 3.5
+    stat_card_hold_seconds: 3.2
+    transition_duration_seconds: 0.45
+  entrance: "fade-up with precise scale (0.98 -> 1.0)"
+  exit: "fade-out"
+
+audio:
+  voice_style: "profesyonel, olculu, sicak ama otoriter Turkce anlatici, net diksiyon, guvenir ton"
+  music_mood: "modern kurumsal ambient, minimalist elektronik, hafif piyano aksan"
+  music_volume: 0.10
+  sfx_style: "hafif su sesleri (damla, akan su), veri gosterimlerinde yumusak bip, gecislerde ince whoosh"
+  ducking_threshold_db: -3
+  voice_variation_allowed: true
+  hero_moment_voice_shift: "yavas, vurgulu, tonlama duser — onemli istatistik veya uyari anlarinda"
+  transition_voice_shift: "kisa duraklama, sonra hafifce yukselen enerjiyle devam"
+
+asset_generation:
+  image_prompt_prefix: "clean professional scientific illustration, Turkish water purification technology, white background, blue (#0066CC) and green (#00A651) color scheme, flat design, "
+  image_negative_prompt: "photorealistic, 3d render, dark, grungy, cluttered, low quality, cartoon, anime"
+  diagram_style: "clean lines, rounded nodes, blue accent borders, subtle shadows, technical precision"
+  consistency_anchors:
+    - "Mavi (#0066CC) tum illustrasyon ve teknik diyagramlarda birincil vurgu"
+    - "Yesil (#00A651) saglik sonuclari ve safilik onaylari icin"
+    - "Beyaz/acik mavi arka planlar bilimsel netlik icin"
+    - "Su molekulleri, damlalar ve akis desenleri tekrarlayan gorsel motif"
+    - "TDS metre, filtre kesit diyagrami ve sehir haritasi tekrarlayan gorsel ogeler"
+    - "Turkce karakter destegi tum metin ogelerinde zorunlu (c, s, g, i, o, u)"
+
+overlays:
+  stat_card:
+    bg: "#F0F7FF"
+    border: "#0066CC"
+    radius: 8
+    shadow: "0 2px 8px rgba(0,102,204,0.12)"
+  key_term:
+    bg: "#E8F5FF"
+    text: "#0052A3"
+    radius: 4
+  code_block:
+    bg: "#1A1A2E"
+    text: "#E5E7EB"
+    highlight: "#00A651"
+
+quality_rules:
+  - "Minimum kontrast orani 4.5:1 (WCAG AA) tum metin icin"
+  - "Ekranda ayni anda en fazla 3 vurgu rengi (arka plan haric)"
+  - "720p mobilde okunabilir yazi boyutu"
+  - "Turkce karakterler (c, s, g, noktasiz i, o, u) tum fontlarda dogru render"
+  - "Saglik iddialari gorsel kaynak veya sertifika rozeti icermeli"
+  - "Her sahnede en az bir animasyonlu oge"
+  - "Minimum 2.8 saniye sahne suresi — hizli kesim yok"
+  - "Su/saglik icerigi icin mavi-beyaz-yesil palet disina cikma"
+  - "Istatistik karti her zaman kaynak referansi icermeli (WHO, TS 266, ISKI vb.)"
+
+chart_palette:
+  - "#0066CC"
+  - "#00BCD4"
+  - "#F4D03F"
+  - "#8E44AD"
+  - "#1ABC9C"
+  - "#E67E22"
+
+color_rules:
+  harmony_type: "analogous"
+  contrast_validation: true
+  colorblind_safe: true

@@ -1,0 +1,171 @@
+{
+  "themeConfig": {
+    "backgroundColor": "#03045E",
+    "surfaceColor": "#023E8A",
+    "primaryColor": "#0077B6",
+    "accentColor": "#00B4D8",
+    "textColor": "#FFFFFF",
+    "headingFont": "Noto Sans",
+    "bodyFont": "Noto Sans",
+    "chartColors": [
+      "#00B4D8",
+      "#90E0EF",
+      "#FF6B35",
+      "#0077B6",
+      "#CAF0F8",
+      "#ADE8F4"
+    ]
+  },
+  "cuts": [
+    {
+      "id": "hook",
+      "source": "generated",
+      "type": "hero_title",
+      "in_seconds": 0,
+      "out_seconds": 4.73,
+      "text": "Muslugunuzdan Ne Geliyor?",
+      "heroSubtitle": "TDS Testinin Sonuclari Sasirtacak",
+      "titleFontSize": 110,
+      "subtitleFontSize": 38,
+      "accentColor": "#00B4D8",
+      "subtitleColor": "#90E0EF",
+      "backgroundVideo": "buzsu-clips/01-hook.mp4",
+      "backgroundOverlay": 0.45,
+      "backgroundColor": "#03045E"
+    },
+    {
+      "id": "sehir-tds",
+      "source": "generated",
+      "type": "stat_card",
+      "in_seconds": 4.73,
+      "out_seconds": 10.58,
+      "stat": "320",
+      "subtitle": "ppm — Istanbul musluk suyu TDS",
+      "accentColor": "#FF6B35",
+      "backgroundVideo": "buzsu-clips/02-tds-meter.mp4",
+      "backgroundOverlay": 0.5,
+      "backgroundColor": "#03045E"
+    },
+    {
+      "id": "karsilastirma",
+      "source": "generated",
+      "type": "bar_chart",
+      "in_seconds": 10.58,
+      "out_seconds": 20.22,
+      "title": "TDS Karsilastirmasi (ppm)",
+      "chartData": [
+        {
+          "label": "Musluk\nSuyu",
+          "value": 320
+        },
+        {
+          "label": "Buzsu",
+          "value": 28
+        },
+        {
+          "label": "WHO\nSiniri",
+          "value": 500
+        },
+        {
+          "label": "Ideal",
+          "value": 50
+        }
+      ],
+      "chartColors": [
+        "#FF6B35",
+        "#00B4D8",
+        "#90E0EF",
+        "#ADE8F4"
+      ],
+      "animationStyle": "grow-up",
+      "showValues": true,
+      "showGrid": true,
+      "viewBoxWidth": 1080,
+      "viewBoxHeight": 1400,
+      "titleFontSize": 54,
+      "labelFontSize": 34,
+      "valueFontSize": 38,
+      "barGap": 20,
+      "backgroundVideo": "buzsu-clips/03-comparison.mp4",
+      "backgroundOverlay": 0.65,
+      "backgroundColor": "#03045E"
+    },
+    {
+      "id": "buzsu-stat",
+      "source": "generated",
+      "type": "stat_card",
+      "in_seconds": 20.22,
+      "out_seconds": 27.33,
+      "stat": "28",
+      "subtitle": "ppm — Buzsu aritmali su. %91 daha temiz.",
+      "accentColor": "#00B4D8",
+      "backgroundVideo": "buzsu-clips/04-buzsu-pure.mp4",
+      "backgroundOverlay": 0.4,
+      "backgroundColor": "#03045E"
+    },
+    {
+      "id": "neden-onemli",
+      "source": "generated",
+      "type": "text_card",
+      "in_seconds": 27.33,
+      "out_seconds": 33.42,
+      "text": "Yuksek TDS;\nKireclenme, metalik tat\nve boru asinmasina neden olur.",
+      "fontSize": 52,
+      "color": "#FFFFFF",
+      "backgroundVideo": "buzsu-clips/05-health-concern.mp4",
+      "backgroundOverlay": 0.55,
+      "backgroundColor": "#03045E"
+    },
+    {
+      "id": "cta",
+      "source": "generated",
+      "type": "hero_title",
+      "in_seconds": 33.42,
+      "out_seconds": 36.24,
+      "text": "Buzsu ile Fark Yarat",
+      "heroSubtitle": "Link biyografide • buzsu.com.tr",
+      "titleFontSize": 108,
+      "subtitleFontSize": 38,
+      "accentColor": "#00B4D8",
+      "subtitleColor": "#FF6B35",
+      "backgroundVideo": "buzsu-clips/06-cta-brand.mp4",
+      "backgroundOverlay": 0.4,
+      "backgroundColor": "#03045E"
+    }
+  ],
+  "overlays": [
+    {
+      "type": "section_title",
+      "in_seconds": 10.8,
+      "out_seconds": 13.0,
+      "text": "Sehir Su Analizi",
+      "accentColor": "#00B4D8"
+    }
+  ],
+  "audio": [
+    {
+      "src": "../../projects/buzsu-hook-reel/assets/audio/01-hook.mp3",
+      "startFrom": 0
+    },
+    {
+      "src": "../../projects/buzsu-hook-reel/assets/audio/02-sehir-tds.mp3",
+      "startFrom": 4.73
+    },
+    {
+      "src": "../../projects/buzsu-hook-reel/assets/audio/03-karsilastirma.mp3",
+      "startFrom": 10.58
+    },
+    {
+      "src": "../../projects/buzsu-hook-reel/assets/audio/04-buzsu-stat.mp3",
+      "startFrom": 20.22
+    },
+    {
+      "src": "../../projects/buzsu-hook-reel/assets/audio/05-neden-onemli.mp3",
+      "startFrom": 27.33
+    },
+    {
+      "src": "../../projects/buzsu-hook-reel/assets/audio/06-cta.mp3",
+      "startFrom": 33.42
+    }
+  ]
+}

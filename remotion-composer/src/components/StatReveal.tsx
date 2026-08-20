@@ -11,6 +11,8 @@ interface StatRevealProps {
   label?: string;
   accentColor?: string;
   position?: "center" | "bottom-right" | "right";
+  statFontSize?: number;
+  labelFontSize?: number;
 }
 
 export const StatReveal: React.FC<StatRevealProps> = ({
@@ -18,6 +20,8 @@ export const StatReveal: React.FC<StatRevealProps> = ({
   label,
   accentColor = "#A78BFA",
   position = "bottom-right",
+  statFontSize = 96,
+  labelFontSize = 22,
 }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
@@ -64,7 +68,7 @@ export const StatReveal: React.FC<StatRevealProps> = ({
       >
         <div
           style={{
-            fontSize: 96,
+            fontSize: statFontSize,
             fontWeight: 800,
             color: accentColor,
             fontFamily: "Space Grotesk, Inter, system-ui, sans-serif",
@@ -77,7 +81,7 @@ export const StatReveal: React.FC<StatRevealProps> = ({
         {label && (
           <div
             style={{
-              fontSize: 22,
+              fontSize: labelFontSize,
               fontWeight: 500,
               color: "#F8FAFC",
               fontFamily: "Space Grotesk, Inter, system-ui, sans-serif",

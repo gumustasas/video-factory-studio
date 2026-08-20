@@ -211,7 +211,7 @@ export const Root: React.FC = () => {
       />
       <Composition
         id="HeroTitle"
-        component={HeroTitle}
+        component={HeroTitle as React.ComponentType<Record<string, unknown>>}
         durationInFrames={30 * 17}
         fps={30}
         width={1920}

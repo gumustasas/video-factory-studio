@@ -9,9 +9,20 @@ import {
 interface HeroTitleProps {
   title: string;
   subtitle?: string;
+  titleFontSize?: number;
+  subtitleFontSize?: number;
+  accentColor?: string;
+  subtitleColor?: string;
 }
 
-export const HeroTitle: React.FC<HeroTitleProps> = ({ title, subtitle }) => {
+export const HeroTitle: React.FC<HeroTitleProps> = ({
+  title,
+  subtitle,
+  titleFontSize = 72,
+  subtitleFontSize = 28,
+  accentColor = "#22D3EE",
+  subtitleColor = "#A78BFA",
+}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
@@ -31,7 +42,7 @@ export const HeroTitle: React.FC<HeroTitleProps> = ({ title, subtitle }) => {
         {/* Main title with per-character spring */}
         <div
           style={{
-            fontSize: 72,
+            fontSize: titleFontSize,
             fontWeight: 800,
             fontFamily: "Space Grotesk, Inter, system-ui, sans-serif",
             lineHeight: 1.2,
@@ -56,7 +67,7 @@ export const HeroTitle: React.FC<HeroTitleProps> = ({ title, subtitle }) => {
                   display: "inline-block",
                   opacity: charSpring,
                   transform: `translateY(${interpolate(charSpring, [0, 1], [30, 0])}px)`,
-                  color: i < 8 ? "#22D3EE" : "#F8FAFC", // Accent first word
+                  color: i < 8 ? accentColor : "#F8FAFC",
                   whiteSpace: char === " " ? "pre" : undefined,
                   minWidth: char === " " ? "0.3em" : undefined,
                 }}
@@ -77,9 +88,9 @@ export const HeroTitle: React.FC<HeroTitleProps> = ({ title, subtitle }) => {
                 fps,
                 config: { damping: 20 },
               }),
-              fontSize: 28,
+              fontSize: subtitleFontSize,
               fontWeight: 400,
-              color: "#A78BFA",
+              color: subtitleColor,
               fontFamily: "Space Grotesk, Inter, system-ui, sans-serif",
               letterSpacing: "0.1em",
               textTransform: "uppercase",
@@ -94,7 +105,7 @@ export const HeroTitle: React.FC<HeroTitleProps> = ({ title, subtitle }) => {
           style={{
             margin: "24px auto 0",
             height: 3,
-            backgroundColor: "#22D3EE",
+            backgroundColor: accentColor,
             borderRadius: 2,
             width: interpolate(
               spring({

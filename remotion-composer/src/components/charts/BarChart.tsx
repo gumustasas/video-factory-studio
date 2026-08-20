@@ -25,6 +25,11 @@ interface BarChartProps {
   showValues?: boolean;
   animationStyle?: BarAnimationStyle;
   barGap?: number;
+  viewBoxWidth?: number;
+  viewBoxHeight?: number;
+  titleFontSize?: number;
+  labelFontSize?: number;
+  valueFontSize?: number;
 }
 
 export const BarChart: React.FC<BarChartProps> = ({
@@ -39,17 +44,22 @@ export const BarChart: React.FC<BarChartProps> = ({
   showValues = true,
   animationStyle = "grow-up",
   barGap = 12,
+  viewBoxWidth = 1920,
+  viewBoxHeight = 1080,
+  titleFontSize = 48,
+  labelFontSize = 20,
+  valueFontSize = 22,
 }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
 
   const maxValue = Math.max(...data.map((d) => d.value), 1);
 
-  // Chart layout constants (within 1920x1080 canvas)
-  const chartLeft = 140;
-  const chartRight = 1780;
-  const chartTop = title ? 160 : 80;
-  const chartBottom = 920;
+  // Chart layout constants — proportional to viewBox dimensions
+  const chartLeft = Math.round(viewBoxWidth * 0.073);
+  const chartRight = Math.round(viewBoxWidth * 0.927);
+  const chartTop = title ? Math.round(viewBoxHeight * 0.148) : Math.round(viewBoxHeight * 0.074);
+  const chartBottom = Math.round(viewBoxHeight * 0.852);
   const chartWidth = chartRight - chartLeft;
   const chartHeight = chartBottom - chartTop;
 
@@ -80,7 +90,7 @@ export const BarChart: React.FC<BarChartProps> = ({
       }}
     >
       <svg
-        viewBox="0 0 1920 1080"
+        viewBox={`0 0 ${viewBoxWidth} ${viewBoxHeight}`}
         style={{ width: "100%", height: "100%" }}
       >
         {/* Title */}
@@ -92,7 +102,7 @@ export const BarChart: React.FC<BarChartProps> = ({
             fill={textColor}
             fontFamily={fontFamily}
             fontWeight={700}
-            fontSize={48}
+            fontSize={titleFontSize}
             opacity={spring({ frame, fps, config: { damping: 20 } })}
           >
             {title}
@@ -243,7 +253,7 @@ export const BarChart: React.FC<BarChartProps> = ({
                   fill={textColor}
                   fontFamily={fontFamily}
                   fontWeight={600}
-                  fontSize={22}
+                  fontSize={valueFontSize}
                   opacity={interpolate(
                     barProgress,
                     [0.7, 1],
@@ -263,7 +273,7 @@ export const BarChart: React.FC<BarChartProps> = ({
                 fill={textColor}
                 fontFamily={fontFamily}
                 fontWeight={500}
-                fontSize={20}
+                fontSize={labelFontSize}
                 opacity={barOpacity}
               >
                 {datum.label}

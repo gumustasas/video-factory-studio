@@ -48,6 +48,7 @@ import { ScreenshotScene } from "./components/ScreenshotScene";
 import type { ScreenshotStep } from "./components/ScreenshotScene";
 import { ProviderChip } from "./components/ProviderChip";
 import type { ParticleType } from "./components/ParticleOverlay";
+import { WaterBackground, type WaterBgVariant } from "./components/WaterBackground";
 import { resolveTheme, type ThemeConfig, DEFAULT_THEME } from "./Root";
 
 const fontFamily = "'Segoe UI', 'Helvetica Neue', Arial, sans-serif";
@@ -265,6 +266,19 @@ interface Cut {
   screenshotSteps?: ScreenshotStep[];
   screenshotSize?: { width: number; height: number };
   cursorStartAt?: [number, number];
+  // Water background props
+  waterBg?: WaterBgVariant;
+  waterBgIntensity?: number;
+  // Font size overrides
+  titleFontSize?: number;
+  subtitleFontSize?: number;
+  subtitleColor?: string;
+  statFontSize?: number;
+  labelFontSize?: number;
+  valueFontSize?: number;
+  viewBoxWidth?: number;
+  viewBoxHeight?: number;
+  barGap?: number;
 }
 
 interface Overlay {
@@ -526,7 +540,7 @@ const BackgroundVideoLayer: React.FC<{
 };
 
 const SceneRenderer: React.FC<{ cut: Cut; theme: ThemeConfig }> = ({ cut, theme }) => {
-  // Wrap component with background video or image if specified
+  // Wrap component with background video, image, or water animation if specified
   const maybeWrapWithBg = (element: React.ReactElement) => {
     if (cut.backgroundVideo) {
       return (
@@ -547,6 +561,20 @@ const SceneRenderer: React.FC<{ cut: Cut; theme: ThemeConfig }> = ({ cut, theme 
         >
           {element}
         </BackgroundImageLayer>
+      );
+    }
+    if (cut.waterBg) {
+      return (
+        <AbsoluteFill>
+          <WaterBackground
+            variant={cut.waterBg}
+            primaryColor={theme.primaryColor}
+            accentColor={theme.accentColor}
+            bgColor={cut.backgroundColor || theme.backgroundColor}
+            intensity={cut.waterBgIntensity ?? 1}
+          />
+          {element}
+        </AbsoluteFill>
       );
     }
     return element;
@@ -591,7 +619,14 @@ const SceneRenderer: React.FC<{ cut: Cut; theme: ThemeConfig }> = ({ cut, theme 
   }
   if (cut.type === "hero_title" && cut.text) {
     return maybeWrapWithBg(
-      <HeroTitle title={cut.text} subtitle={cut.heroSubtitle || cut.subtitle} />
+      <HeroTitle
+        title={cut.text}
+        subtitle={cut.heroSubtitle || cut.subtitle}
+        titleFontSize={cut.titleFontSize}
+        subtitleFontSize={cut.subtitleFontSize}
+        accentColor={cut.accentColor || theme.accentColor}
+        subtitleColor={cut.subtitleColor}
+      />
     );
   }
   if (cut.type === "terminal_scene" && cut.steps) {
@@ -624,6 +659,9 @@ const SceneRenderer: React.FC<{ cut: Cut; theme: ThemeConfig }> = ({ cut, theme 
         data={cut.chartData} title={cut.title} colors={cut.chartColors || theme.chartColors}
         animationStyle={(cut.chartAnimation as any) || "grow-up"}
         showGrid={cut.showGrid} showValues={cut.showValues} backgroundColor={bgColor}
+        viewBoxWidth={cut.viewBoxWidth} viewBoxHeight={cut.viewBoxHeight}
+        titleFontSize={cut.titleFontSize} labelFontSize={cut.labelFontSize}
+        valueFontSize={cut.valueFontSize} barGap={cut.barGap}
       />
     );
   }
@@ -730,7 +768,7 @@ const OverlayRenderer: React.FC<{ overlay: Overlay }> = ({ overlay }) => {
   if (overlay.type === "section_title") {
     return (
       <SectionTitle
-        title={overlay.text}
+        title={overlay.text ?? ""}
         subtitle={overlay.subtitle}
         accentColor={overlay.accentColor}
         position={(overlay.position as any) || "top-left"}
@@ -740,7 +778,7 @@ const OverlayRenderer: React.FC<{ overlay: Overlay }> = ({ overlay }) => {
   if (overlay.type === "stat_reveal") {
     return (
       <StatReveal
-        stat={overlay.text}
+        stat={overlay.text ?? ""}
         label={overlay.subtitle}
         accentColor={overlay.accentColor}
         position={(overlay.position as any) || "bottom-right"}
@@ -748,7 +786,7 @@ const OverlayRenderer: React.FC<{ overlay: Overlay }> = ({ overlay }) => {
     );
   }
   if (overlay.type === "hero_title") {
-    return <HeroTitle title={overlay.text} subtitle={overlay.subtitle} />;
+    return <HeroTitle title={overlay.text ?? ""} subtitle={overlay.subtitle} />;
   }
   if (overlay.type === "provider_chip" && overlay.providers) {
     return (

@@ -1,0 +1,117 @@
+{
+  "themeConfig": {
+    "backgroundColor": "#03045E",
+    "surfaceColor": "#023E8A",
+    "primaryColor": "#0077B6",
+    "accentColor": "#00B4D8",
+    "textColor": "#FFFFFF",
+    "headingFont": "Noto Sans",
+    "bodyFont": "Noto Sans",
+    "chartColors": ["#00B4D8", "#90E0EF", "#FF6B35", "#0077B6", "#CAF0F8", "#ADE8F4"]
+  },
+  "cuts": [
+    {
+      "id": "hook",
+      "source": "generated",
+      "type": "hero_title",
+      "in_seconds": 0,
+      "out_seconds": 3.5,
+      "text": "Muslugunuzdan Ne Geliyor?",
+      "heroSubtitle": "TDS Testinin Sonuclari Sasirtacak",
+      "titleFontSize": 120,
+      "subtitleFontSize": 40,
+      "accentColor": "#00B4D8",
+      "subtitleColor": "#90E0EF",
+      "waterBg": "droplets",
+      "backgroundColor": "#03045E"
+    },
+    {
+      "id": "sehir-tds",
+      "source": "generated",
+      "type": "stat_card",
+      "in_seconds": 3.5,
+      "out_seconds": 7.0,
+      "stat": "320",
+      "subtitle": "ppm — Istanbul musluk suyu TDS",
+      "accentColor": "#FF6B35",
+      "waterBg": "meter",
+      "backgroundColor": "#03045E"
+    },
+    {
+      "id": "karsilastirma",
+      "source": "generated",
+      "type": "bar_chart",
+      "in_seconds": 7.0,
+      "out_seconds": 13.0,
+      "title": "TDS Karsilastirmasi (ppm)",
+      "chartData": [
+        { "label": "Musluk\nSuyu", "value": 320 },
+        { "label": "Buzsu", "value": 28 },
+        { "label": "WHO\nSiniri", "value": 500 },
+        { "label": "Ideal", "value": 50 }
+      ],
+      "chartColors": ["#FF6B35", "#00B4D8", "#90E0EF", "#ADE8F4"],
+      "animationStyle": "grow-up",
+      "showValues": true,
+      "showGrid": true,
+      "viewBoxWidth": 1080,
+      "viewBoxHeight": 1400,
+      "titleFontSize": 54,
+      "labelFontSize": 34,
+      "valueFontSize": 38,
+      "barGap": 20,
+      "waterBg": "waves",
+      "waterBgIntensity": 0.4,
+      "backgroundColor": "#03045E"
+    },
+    {
+      "id": "buzsu-stat",
+      "source": "generated",
+      "type": "stat_card",
+      "in_seconds": 13.0,
+      "out_seconds": 17.5,
+      "stat": "28",
+      "subtitle": "ppm — Buzsu aritmali su. %91 daha temiz.",
+      "accentColor": "#00B4D8",
+      "waterBg": "molecules",
+      "backgroundColor": "#03045E"
+    },
+    {
+      "id": "neden-onemli",
+      "source": "generated",
+      "type": "text_card",
+      "in_seconds": 17.5,
+      "out_seconds": 22.0,
+      "text": "Yuksek TDS;\nKireclenme, metalik tat\nve boru asinmasina neden olur.",
+      "fontSize": 52,
+      "color": "#FFFFFF",
+      "waterBg": "city-glow",
+      "backgroundColor": "#03045E"
+    },
+    {
+      "id": "cta",
+      "source": "generated",
+      "type": "hero_title",
+      "in_seconds": 22.0,
+      "out_seconds": 27.0,
+      "text": "Buzsu ile Fark Yarat",
+      "heroSubtitle": "Link biyografide • buzsu.com.tr",
+      "titleFontSize": 108,
+      "subtitleFontSize": 38,
+      "accentColor": "#00B4D8",
+      "subtitleColor": "#FF6B35",
+      "waterBg": "droplets",
+      "waterBgIntensity": 0.8,
+      "backgroundColor": "#03045E"
+    }
+  ],
+  "overlays": [
+    {
+      "type": "section_title",
+      "in_seconds": 7.2,
+      "out_seconds": 9.5,
+      "text": "Sehir Su Analizi",
+      "accentColor": "#00B4D8"
+    }
+  ]
+}

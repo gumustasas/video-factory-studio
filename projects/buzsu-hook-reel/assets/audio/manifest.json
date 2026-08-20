@@ -1,0 +1,38 @@
+{
+  "script_key": "buzsu-hook-reel",
+  "generated_at": "2026-08-20T09:19:36Z",
+  "voice_model": "eleven_multilingual_v2",
+  "language": "tr",
+  "segments": [
+    {
+      "id": "hook",
+      "text": "Musluğunuzdan ne geliyor? TDS testinin sonuçları sizi şaşırtacak.",
+      "audio_path": "projects/buzsu-hook-reel/assets/audio/01-hook.mp3"
+    },
+    {
+      "id": "sehir-tds",
+      "text": "İstanbul musluk suyunun TDS değeri üç yüz yirmi ppm. Bu ne anlama geliyor?",
+      "audio_path": "projects/buzsu-hook-reel/assets/audio/02-sehir-tds.mp3"
+    },
+    {
+      "id": "karsilastirma",
+      "text": "İşte karşılaştırma: Musluk suyu üç yüz yirmi, Buzsu yirmi sekiz, WHO sınırı beş yüz, ideal değer ise elli ppm.",
+      "audio_path": "projects/buzsu-hook-reel/assets/audio/03-karsilastirma.mp3"
+    },
+    {
+      "id": "buzsu-stat",
+      "text": "Buzsu: yalnızca yirmi sekiz ppm. Musluk suyundan yüzde doksanbir daha temiz.",
+      "audio_path": "projects/buzsu-hook-reel/assets/audio/04-buzsu-stat.mp3"
+    },
+    {
+      "id": "neden-onemli",
+      "text": "Yüksek TDS kireçlenmeye, metalik tada ve boru aşınmasına neden olur. Aileni koru.",
+      "audio_path": "projects/buzsu-hook-reel/assets/audio/05-neden-onemli.mp3"
+    },
+    {
+      "id": "cta",
+      "text": "Buzsu ile fark yarat. Link biyografide.",
+      "audio_path": "projects/buzsu-hook-reel/assets/audio/06-cta.mp3"
+    }
+  ]
+}

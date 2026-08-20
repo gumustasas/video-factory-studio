@@ -1,0 +1,41 @@
+name: Generate Turkish TTS Audio
+
+on:
+  workflow_dispatch:
+    inputs:
+      script_key:
+        description: "Which script to generate (e.g. buzsu-hook-reel)"
+        required: true
+        default: "buzsu-hook-reel"
+
+jobs:
+  generate-tts:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Generate TTS audio
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          SCRIPT_KEY: ${{ github.event.inputs.script_key }}
+        run: python scripts/generate_tts.py
+
+      - name: Commit audio files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add projects/
+          git diff --staged --quiet || git commit -m "chore: add TTS audio for ${{ github.event.inputs.script_key }}"
+          git push

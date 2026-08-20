@@ -1,0 +1,43 @@
+{
+  "script_key": "buzsu-hook-reel",
+  "generated_at": "2026-08-20T09:42:52Z",
+  "model": "fal-ai/kling-video/v3/standard/text-to-video",
+  "clips": [
+    {
+      "id": "01-hook",
+      "scene": "hook",
+      "path": "projects/buzsu-hook-reel/assets/video/01-hook.mp4",
+      "prompt": "Crystal clear water droplets falling in slow motion against deep navy blue backg..."
+    },
+    {
+      "id": "02-tds-meter",
+      "scene": "sehir-tds",
+      "path": "projects/buzsu-hook-reel/assets/video/02-tds-meter.mp4",
+      "prompt": "Modern digital TDS meter being dipped into glass of tap water on marble counter,..."
+    },
+    {
+      "id": "03-comparison",
+      "scene": "karsilastirma",
+      "path": "projects/buzsu-hook-reel/assets/video/03-comparison.mp4",
+      "prompt": "Two identical crystal glasses side by side, one with murky yellowish tap water a..."
+    },
+    {
+      "id": "04-buzsu-pure",
+      "scene": "buzsu-stat",
+      "path": "projects/buzsu-hook-reel/assets/video/04-buzsu-pure.mp4",
+      "prompt": "Pure crystal clear water pouring from above into a glass, perfect clarity with z..."
+    },
+    {
+      "id": "05-health-concern",
+      "scene": "neden-onemli",
+      "path": "projects/buzsu-hook-reel/assets/video/05-health-concern.mp4",
+      "prompt": "Close-up of white limescale deposits forming on modern chrome kitchen faucet and..."
+    },
+    {
+      "id": "06-cta-brand",
+      "scene": "cta",
+      "path": "projects/buzsu-hook-reel/assets/video/06-cta-brand.mp4",
+      "prompt": "Premium Buzsu water bottle emerging from deep blue water with ripple effect, cry..."
+    }
+  ]
+}

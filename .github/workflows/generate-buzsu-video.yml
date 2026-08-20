@@ -1,0 +1,79 @@
+name: Generate Buzsu AI Video
+
+on:
+  workflow_dispatch:
+    inputs:
+      step:
+        description: "Which step to run"
+        required: true
+        default: "clips"
+        type: choice
+        options:
+          - clips        # Generate AI video clips with Kling
+          - tts          # Generate Turkish voice-over
+          - both         # Both clips + TTS
+
+jobs:
+  generate-clips:
+    if: ${{ github.event.inputs.step == 'clips' || github.event.inputs.step == 'both' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Generate AI video clips (Kling v3 via fal.ai)
+        env:
+          FAL_KEY: ${{ secrets.FAL_KEY }}
+        run: python scripts/generate_buzsu_clips.py
+
+      - name: Commit clips
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f projects/buzsu-hook-reel/assets/video/
+          git diff --staged --quiet || git commit -m "chore: add Buzsu AI video clips (Kling v3)"
+          git push
+
+  generate-tts:
+    if: ${{ github.event.inputs.step == 'tts' || github.event.inputs.step == 'both' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Generate Turkish TTS
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          SCRIPT_KEY: buzsu-hook-reel
+        run: python scripts/generate_tts.py
+
+      - name: Commit audio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f projects/buzsu-hook-reel/assets/audio/
+          git diff --staged --quiet || git commit -m "chore: add Buzsu Turkish TTS audio"
+          git push
